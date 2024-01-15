@@ -1,3 +1,7 @@
+Certainly! Here's the entire `README.md` file for the Propane Tank Level Lovelace Card, including the image links:
+
+---
+
 # Propane Tank Level Lovelace Card
 
 This custom Lovelace card for Home Assistant allows you to visually monitor the level of your propane tank using different images based on the current level.
@@ -7,6 +11,29 @@ This custom Lovelace card for Home Assistant allows you to visually monitor the 
 - Displays a visual representation of your propane tank level.
 - Updates the image based on the current level of the tank.
 - Easy to configure with your existing Home Assistant setup.
+
+## Tank Level Images
+
+### Full Tank (100%)
+![Full Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/full-tank.png)
+
+### 80% Tank Level
+![80% Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/80-percent.png)
+
+### 65% Tank Level
+![65% Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/65-percent.png)
+
+### 50% Tank Level
+![50% Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/50-percent.png)
+
+### 35% Tank Level
+![35% Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/35-percent.png)
+
+### 15% Tank Level
+![15% Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/15-percent.png)
+
+### Empty Tank (0%)
+![Empty Tank](https://github.com/jmc5105/gas-tank-monitoring/blob/main/empty-tank.png)
 
 ## Prerequisites
 
@@ -57,3 +84,6 @@ After setting up the card, it will automatically update to display the image cor
 
 For any issues or questions, refer to the Home Assistant community forums or documentation.
 
+---
+
+This README provides a comprehensive guide for setting up and using the Propane Tank Level Lovelace Card in Home Assistant, complete with visual representations of each tank level.
