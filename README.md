@@ -1,52 +1,59 @@
-# Home Assistant Propane Tank Level Card
+# Propane Tank Level Lovelace Card
 
-This custom Lovelace card for Home Assistant allows you to visually monitor your propane tank levels. It displays a vector image of a propane tank that changes color from green to red as the tank level decreases.
+This custom Lovelace card for Home Assistant allows you to visually monitor the level of your propane tank using different images based on the current level.
 
 ## Features
 
-- Visual representation of propane tank levels
-- Color changes from green (full) to red (empty) based on the tank level
-- Customizable vector image for the tank
+- Displays a visual representation of your propane tank level.
+- Updates the image based on the current level of the tank.
+- Easy to configure with your existing Home Assistant setup.
 
 ## Prerequisites
 
-- Home Assistant installation
-- A sensor in Home Assistant that tracks the propane tank level
+- Home Assistant installed and running.
+- A sensor in Home Assistant that tracks the propane tank level.
+- Images for different tank levels stored in the `www` folder of your Home Assistant configuration.
 
 ## Installation
 
-1. **Prepare the Vector Image:** Create or find a vector image of a propane tank. Place this image in the `www` folder of your Home Assistant configuration directory.
+1. **Prepare Images**: Place your tank level images (`full-tank.png`, `empty-tank.png`, `15-percent.png`, etc.) in the `www` folder of your Home Assistant configuration directory.
 
-2. **Create the Custom Card:** Use the provided code template to create a custom Lovelace card. Modify the code as necessary to suit your setup.
+2. **Sensor Setup**: Ensure you have a sensor entity in Home Assistant that accurately reflects the gas tank level.
 
-3. **Integrate with Home Assistant:** Add the custom card to your Lovelace dashboard by editing your dashboard configuration.
+3. **Lovelace Card Configuration**: Add the custom Lovelace card configuration to your dashboard. Refer to the example YAML configuration provided.
 
 ## Configuration
 
-- **Sensor Entity:** Replace `'sensor.gas_tank_level'` in the script with the entity ID of your propane tank level sensor.
-- **Customization:** Adjust the dimensions, colors, and other styles in the CSS to match your preferences and setup.
+Here's an example YAML configuration for the Lovelace card:
+
+```yaml
+type: vertical-stack
+cards:
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 80
+    card:
+      type: picture
+      image: /local/full-tank.png
+
+  # ... additional conditions and cards for each level ...
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        below: 1
+    card:
+      type: picture
+      image: /local/empty-tank.png
+```
 
 ## Usage
 
-Once installed and configured, the card will display the current level of your propane tank. The visual representation will update automatically based on the sensor data.
-
-## Customization Tips
-
-- You can modify the gradient colors and transition points in the CSS to better represent the tank levels.
-- Adjust the update interval in the JavaScript code to control how often the card updates.
-
-## Troubleshooting
-
-If the card is not displaying correctly:
-
-- Ensure that the sensor entity is correctly configured and reporting data.
-- Check that the vector image path is correct and the image is accessible.
-- Verify that the custom card code is correctly integrated into your Lovelace dashboard.
+After setting up the card, it will automatically update to display the image corresponding to the current level of your propane tank as reported by the sensor. Ensure that the sensor entity is correctly configured and reporting accurate data.
 
 ## Support
 
-For support, please refer to the Home Assistant community forums or the documentation for custom Lovelace cards.
+For any issues or questions, refer to the Home Assistant community forums or documentation.
 
-## License
-
-This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
