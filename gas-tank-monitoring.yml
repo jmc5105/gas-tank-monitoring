@@ -1,0 +1,63 @@
+type: vertical-stack
+cards:
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 80
+    card:
+      type: picture
+      image: /local/full-tank.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 65
+        below: 81
+    card:
+      type: picture
+      image: /local/80-percent.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 50
+        below: 66
+    card:
+      type: picture
+      image: /local/65-percent.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 35
+        below: 51
+    card:
+      type: picture
+      image: /local/50-percent.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 15
+        below: 36
+    card:
+      type: picture
+      image: /local/35-percent.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        above: 0
+        below: 16
+    card:
+      type: picture
+      image: /local/15-percent.png
+
+  - type: conditional
+    conditions:
+      - entity: sensor.gas_tank_level
+        below: 1
+    card:
+      type: picture
+      image: /local/empty-tank.png
